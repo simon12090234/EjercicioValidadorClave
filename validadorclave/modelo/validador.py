@@ -3,6 +3,7 @@ from errores import *
 
 
 class ReglaValidacion(ABC):
+
     def init(self, longitud_esperada: int):
         self._longitud_esperada: int = longitud_esperada
 
@@ -35,6 +36,20 @@ class ReglaValidacion(ABC):
             if item.isdigit():
                 return True
         return False
+
+
+class ReglaValidacionGanimedes(ReglaValidacion):
+    def init(self, longitud_esperada: int):
+        super().init(longitud_esperada)
+
+    def contiene_caracter_especial(self, clave):
+        for item in clave:
+            if item == "@" or "_" or "#" or "$" or "%":
+                return True
+
+    def es_valida(self, clave: str):
+        ReglaValidacion._validar_longitud()
+
 
 
 

@@ -7,7 +7,7 @@ class ReglaValidacion(ABC):
         self._longitud_esperada: int = longitud_esperada
 
     @abstractmethod
-    def es_valida(self):
+    def es_valida(self, clave):
         pass
 
     def _validar_longitud(self, clave):
@@ -35,6 +35,10 @@ class ReglaValidacion(ABC):
             if item.isdigit():
                 return True
         return False
+
+
+
+
 
 
 
